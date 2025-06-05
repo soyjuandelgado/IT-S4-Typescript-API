@@ -8,17 +8,12 @@ document.addEventListener("DOMContentLoaded", () =>{
     nextJoke();
 });
 
-const nextJoke = () => {
+const nextJoke = async () => {
     const joke = document.getElementById("joke");
     if (joke){
-        getJoke().then( text => joke.innerHTML = text.joke);
+        const jokeObj = await getJoke();
+        console.log(jokeObj);
+        joke.textContent = jokeObj.status == 200 ? jokeObj.joke : jokeObj.status;
+        //getJoke().then( text => joke.textContent = text.joke);
     }
 }
-
-// Para hacerlo sin innerHTML
-// const textNode = document.createTextNode(text);
-// if(joke.firstChild){
-//     joke.replaceChild(joke.firstChild, textNode);
-// }else{
-//     joke.appendChild(textNode);
-// }

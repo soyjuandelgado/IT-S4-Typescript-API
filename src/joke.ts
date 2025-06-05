@@ -7,6 +7,6 @@ export const getJoke = () : Promise<any> => {
         }
     }
     return fetch("https://icanhazdadjoke.com/", conf)
-        .then(res => res.json())
+        .then(res => res.ok ? res.json() : res)
         .then(response => response);
 }

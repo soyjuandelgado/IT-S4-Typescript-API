@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () =>{
 });
 
 const nextJoke = async () => {
-    const joke = document.getElementById("joke");
+    const joke = document.getElementById("joke-text");
     if (joke){
         const jokeObj = await getJoke();
         console.log(jokeObj);

@@ -3,13 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./public/css/styles.css">
     <title>Chistes</title>
 </head>
 <body>
-    <main>
-        <div id="joke"></div>
-        <br>
-        <button id="next">Siguiente</button>
+    <div class="overlay"></div>
+    <header class="weather-container">
+        <p>Buen tiempo</p>
+    </header>
+    <main class="container">
+        <section class="joke-container">
+            <h1 class="joke-title">¡Cuéntame un chiste! </h1>
+            <div class="joke-text" id="joke-text"></div>
+            <button class="joke-next-btn" id="next">Siguiente</button>
+        </section>
     </main>
     <script type="module" src="./src/main.ts"></script>
 </body>

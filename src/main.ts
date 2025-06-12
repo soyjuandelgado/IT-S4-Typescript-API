@@ -1,4 +1,4 @@
-import { getJoke, scoreJoke } from "./joke";
+import { getJokeText, scoreJoke } from "./joke";
 
 document.addEventListener("DOMContentLoaded", () => {
     const btnNext = document.getElementById("next");
@@ -17,16 +17,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const nextJoke = async () => {
     const joke = document.getElementById("joke-text");
-    if (joke) {
-        const jokeObj = await getJoke();
-        console.log(jokeObj);
-        joke.textContent =
-            jokeObj.status == 200 ? jokeObj.joke : jokeObj.status;
-        //getJoke().then( text => joke.textContent = text.joke);
+    if (!joke) return;
+
+    try {
+        const jokeText = await getJokeText();
+        console.log(jokeText);
+        joke.textContent = jokeText;
+    } catch (error) {
+        console.log(`nextJoke: ${error}`);
+        joke.textContent = "Something got wrong";
     }
 };
 
 const valJoke = (value: number) => {
-    alert(value);
     scoreJoke(value);
 };
+

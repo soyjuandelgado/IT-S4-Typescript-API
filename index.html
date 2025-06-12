@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./public/css/styles.css">
     <title>Chistes</title>
 </head>
+
 <body>
     <div class="overlay"></div>
     <header class="weather-container">
@@ -15,9 +17,15 @@
         <section class="joke-container">
             <h1 class="joke-title">¡Cuéntame un chiste! </h1>
             <div class="joke-text" id="joke-text"></div>
+            <div class="joke-valoration">
+                <button class="joke-valoration-button" id="joke-val-1">🙂</button>
+                <button class="joke-valoration-button" id="joke-val-2">😄</button>
+                <button class="joke-valoration-button" id="joke-val-3">🤣</button>
+            </div>
             <button class="joke-next-btn" id="next">Siguiente</button>
         </section>
     </main>
     <script type="module" src="./src/main.ts"></script>
 </body>
+
 </html>

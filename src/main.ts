@@ -1,4 +1,5 @@
 import { getJokeText, scoreJoke } from "./joke";
+import { getWeather } from "./weather";
 
 document.addEventListener("DOMContentLoaded", () => {
     const btnNext = document.getElementById("next");
@@ -13,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (btnValJoke3) btnValJoke3.addEventListener("click", () => valJoke(3));
 
     nextJoke();
+    showWeather();
 });
 
 const nextJoke = async () => {
@@ -33,3 +35,15 @@ const valJoke = (value: number) => {
     scoreJoke(value);
 };
 
+const showWeather = async () => {
+    const weather = document.getElementById("weather-info");
+    if (!weather) return;
+    try {
+        let w = await getWeather();
+        weather.textContent = `${w.temp}º - ${w.sky}`;
+        console.log(w);
+    } catch (error) {
+        weather.textContent = "Tiempo no disponible";
+        console.log(error);
+    }
+};

@@ -7,23 +7,13 @@ interface Joke {
 let reportJokes: Joke[] = [];
 let lastJokeText: string;
 
-/* MODIFICAR:
-    [x] Devolver solo el texto de la broma en getJoke
-    [x] Gestion de errores en GetJokeAPI
-    [x] Solo añadir en reportJokes cuando se valora
-    [x] Buscar si existe en reportJokes
-    [] ¿Utilizar clases con metodos?: clase joke que se extendera por api
- */
-
 export const getJokeText = (): Promise<string> => {
     return getJokeAPI()
         .then((response) => {
-            console.log(`getJokeText response: ${response}`);
             lastJokeText = response;
             return response;
         })
         .catch((error) => {
-            console.log("getJokeText - Error: " + error.message);
             throw error;
         });
 };
@@ -45,7 +35,6 @@ const getJokeAPI = (): Promise<string> => {
         })
         .then((response) => response.joke)
         .catch((error: Error) => {
-            console.log("getJokeAPI - Communication error: " + error.message);
             throw error;
         });
 
@@ -58,7 +47,7 @@ export const scoreJoke = (value: number) => {
         score: value,
         date: new Date().toISOString(),
     };
-    let jokeIndex = reportJokes.findIndex(({ joke }) => joke === lastJokeText); //findLastIndex() hay que cambiar a ES2023
+    let jokeIndex = reportJokes.findIndex(({ joke }) => joke === lastJokeText);
     if (jokeIndex !== -1) {
         reportJokes[jokeIndex] = jokeScored;
     } else {

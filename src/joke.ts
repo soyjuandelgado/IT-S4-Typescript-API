@@ -19,6 +19,11 @@ export const getJokeText = (): Promise<string> => {
 };
 
 const getJokeAPI = (): Promise<string> => {
+    const values = 2;
+    return Math.floor(Math.random() * values)? getChuckNorrisJokeAPI() : getDadJokeAPI();
+};
+
+const getDadJokeAPI = (): Promise<string> => {
     const conf = {
         method: "GET",
         headers: {
@@ -40,6 +45,21 @@ const getJokeAPI = (): Promise<string> => {
 
     return result;
 };
+
+const getChuckNorrisJokeAPI = (): Promise<string> => {
+    let result = fetch("https://api.chucknorris.io/jokes/random")
+        .then((res) => {
+            if (res.ok) return res.json();
+            else throw new Error(String(res.status));
+        })
+        .then((response) => response.value)
+        .catch((error: Error) => {
+            throw error;
+        });
+
+    return result;
+};
+
 
 export const scoreJoke = (value: number) => {
     const jokeScored: Joke = {

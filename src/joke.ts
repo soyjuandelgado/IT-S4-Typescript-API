@@ -4,11 +4,36 @@ interface Joke {
     date: string; //ISO Date
 }
 
+interface JokeRequest {
+    url: string;
+    conf: {};
+    field: string;
+}
+
 let reportJokes: Joke[] = [];
 let lastJokeText: string;
+const requests: JokeRequest[] = [
+    {
+        url: "https://api.chucknorris.io/jokes/random",
+        conf: {},
+        field: "value",
+    },
+    {
+        url: "https://icanhazdadjoke.com/",
+        conf: {
+            method: "GET",
+            headers: {
+                Accept: "application/json",
+                "User-Agent":
+                    "IT API (https://github.com/soyjuandelgado/IT-S4-Typescript-API)",
+            },
+        },
+        field: "joke",
+    },
+];
 
 export const getJokeText = (): Promise<string> => {
-    return getJokeAPI()
+    return getJoke()
         .then((response) => {
             lastJokeText = response;
             return response;
@@ -18,48 +43,22 @@ export const getJokeText = (): Promise<string> => {
         });
 };
 
-const getJokeAPI = (): Promise<string> => {
-    const values = 2;
-    return Math.floor(Math.random() * values)? getChuckNorrisJokeAPI() : getDadJokeAPI();
-};
+const getJoke = (): Promise<string> =>
+    getJokeAPI(requests[Math.floor(Math.random() * requests.length)]);
 
-const getDadJokeAPI = (): Promise<string> => {
-    const conf = {
-        method: "GET",
-        headers: {
-            Accept: "application/json",
-            "User-Agent":
-                "IT API (https://github.com/soyjuandelgado/IT-S4-Typescript-API)",
-        },
-    };
-
-    let result = fetch("https://icanhazdadjoke.com/", conf)
+const getJokeAPI = ({ url, conf, field }: JokeRequest): Promise<string> => {
+    let result = fetch(url, conf)
         .then((res) => {
             if (res.ok) return res.json();
             else throw new Error(String(res.status));
         })
-        .then((response) => response.joke)
+        .then((response) => response[field])
         .catch((error: Error) => {
             throw error;
         });
 
     return result;
 };
-
-const getChuckNorrisJokeAPI = (): Promise<string> => {
-    let result = fetch("https://api.chucknorris.io/jokes/random")
-        .then((res) => {
-            if (res.ok) return res.json();
-            else throw new Error(String(res.status));
-        })
-        .then((response) => response.value)
-        .catch((error: Error) => {
-            throw error;
-        });
-
-    return result;
-};
-
 
 export const scoreJoke = (value: number) => {
     const jokeScored: Joke = {

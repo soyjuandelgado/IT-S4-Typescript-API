@@ -35,14 +35,20 @@ const valJoke = (value: number) => {
 };
 
 const showWeather = async () => {
-    const weather = document.getElementById("weather-info");
-    if (!weather) return;
+    const path ="./assets/img/weather/";
+    const temp = document.getElementById("weather-info-text");
+    const sky = document.getElementById("weather-icon-sky") as HTMLImageElement;
+    if (!temp) return;
+    if (!sky) return;
     try {
         let w = await getWeather();
-        weather.textContent = `${w.temp}º - ${w.sky}`;
+        temp.textContent = w.temp;
+        sky.alt = w.sky;
+        sky.title = w.sky;
+        sky.src = `${path}${w.skyCode}.svg`;
         console.log(w);
     } catch (error) {
-        weather.textContent = "Tiempo no disponible";
+        temp.textContent = "--";
         console.log(error);
     }
 };

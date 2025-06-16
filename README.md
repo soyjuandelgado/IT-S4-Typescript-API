@@ -14,6 +14,9 @@
   - [💻Tecnologías Utilizadas](#tecnologías-utilizadas)
   - [📋Requisitos](#requisitos)
   - [🛠️Instalación](#️instalación)
+    - [1. Descargar el repositorio](#1-descargar-el-repositorio)
+    - [2. Instalación de paquetes Node.js](#2-instalación-de-paquetes-nodejs)
+    - [3. En el caso de querer usar Vite](#3-en-el-caso-de-querer-usar-vite)
   - [▶️Ejecución](#️ejecución)
 
 ## 📄Descripción
@@ -22,26 +25,44 @@ Creación de una web de chistes que tenga las siguientes funcionalidades:
 
 ### 1. Obtener chistes de API
 
+- Conectar con la API de chistes y mostrar el primero por pantalla.
+- Cada vez que se pulse siguiente, mostrar un chiste nuevo.
+  
 ### 2. Hacer diseño de web básico
 
-![Ejercicio 2](/assets/img/ex2.png)
+- Preparar un diseño básico de la página web.
+
+<img src="public/assets/img/ex2.png" width="500">
 
 ### 3. Obtener y guardar valoraciones de los chistes
 
-![Ejercicio 3](/assets/img/ex3.png)
+- Crear botones para puntuar el chiste
+- Crear array para guardar las puntuaciones de los chistes
+- Poder modificar la valoracion de un chiste
+- Mostrar por consola el array actualizado.
+  
+<img src="public/assets/img/ex3.png" width="800">
 
 ### 4. Mostrar prevision del tiempo
 
-![Ejercicio 4](/assets/img/ex4.png)
+- Conectar con una API que nos dé información meteorológica.
+- Mostrar en la cabecera la información obtenida.
+  
+<img src="public/assets/img/ex4.png" width="500">
 
 ### 5. Añadir otras APIs de chistes
 
-![Ejercicio 5](/assets/img/ex5.png)
+- Añadir la API de chistes de Chuck Norris.
+- Obtener chistes aleatoriamente de las APIs.
+
+<img src="public/assets/img/ex5.png" width="500">
 
 ### 6. Diseño web mejorado y responsive
 
-![Ejercicio 6 Web](/assets/img/ex6-web.png)
-![Ejercicio 6 Movil](/assets/img/ex6-mobile.png)
+- Modificar el diseño web para adaptarlo al modelo presentado.
+- Hacer diseño adaptable de la web.
+  
+<img src="public/assets/img/ex6-web.png" width="500">&nbsp; &nbsp;&nbsp; &nbsp;<img src="public/assets/img/ex6-mobile.png" width="175">
 
 ## 💻Tecnologías Utilizadas
 
@@ -57,22 +78,32 @@ Creación de una web de chistes que tenga las siguientes funcionalidades:
   
 ## 🛠️Instalación
 
-Instalación de paquetes Node.js
+### 1. Descargar el repositorio
+
+```shell
+git clone https://github.com/soyjuandelgado/IT-S4-Typescript-API destino
+```
+
+### 2. Instalación de paquetes Node.js
 
 ```shell
 npm install
 ```
 
-## ▶️Ejecución
-
-La ejecucion del testing se realiza mediante el siguiente comando:
+### 3. En el caso de querer usar Vite
 
 ```shell
-npm run test:watch
+npm install -D vite
 ```
 
-https://soyjuandelgado.github.io/IT-S4-Typescript-API/
+Para mas informacion: [Web Vite](https://vite.dev/guide/)
 
-Para ver el resultado del testing hay que abrir la página test-results.html
+## ▶️Ejecución
 
-https://github.com/soyjuandelgado/IT-S4-Typescript-API
+Visitar la web: [Web](https://soyjuandelgado.github.io/IT-S4-Typescript-API/)
+
+Para ejecutar en local mediante Vite:
+
+```shell
+npm run dev
+```

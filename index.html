@@ -8,8 +8,8 @@
     <title>Chistes</title>
 </head>
 
-<body>
-    <div class="overlay"></div>
+<body id="page-body">
+    <div class="overlay" id="back-image"></div>
     <header class="weather-container">
         <img class="weather-icon-sky" id="weather-icon-sky" src="./assets/img/weather/11.svg" alt="Clear Day" title="Clear Day">
         <p class="weather-info-text" id="weather-info-text">--</p>
@@ -20,9 +20,9 @@
             <h1 class="joke-title">¡Cuéntame un chiste!</h1>
             <div class="joke-text" id="joke-text" role="status" aria-live="polite"></div>
             <div class="joke-valoration">
-                <button class="joke-valoration-button" id="joke-val-1" aria-label="Not amusing">🙂</button>
-                <button class="joke-valoration-button" id="joke-val-2" aria-label="Funny">😄</button>
-                <button class="joke-valoration-button" id="joke-val-3" aria-label="Hilariuos">🤣</button>
+                <button class="joke-valoration-button" id="joke-val-1" aria-label="Not amusing" title="Not amusing">🙂</button>
+                <button class="joke-valoration-button" id="joke-val-2" aria-label="Funny" title="Funny">😄</button>
+                <button class="joke-valoration-button" id="joke-val-3" aria-label="Hilariuos" title="Hilariuos">🤣</button>
             </div>
             <button class="joke-next-btn" id="next">Siguiente</button>
         </section>

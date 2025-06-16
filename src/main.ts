@@ -18,6 +18,7 @@ const nextJoke = async () => {
     const joke = document.getElementById("joke-text");
     if (!joke) return;
 
+    changeBackground();
     joke.textContent = "Thinking... 🤔";
 
     try {
@@ -30,6 +31,12 @@ const nextJoke = async () => {
     }
 };
 
+const changeBackground = () => {
+    const back = document.getElementById("back-image");
+    if (!back) return;
+    back.classList = "overlay";
+    back.classList.add(`blob${Math.floor(Math.random() * 10)}`);
+}
 const valJoke = (value: number) => {
     scoreJoke(value);
 };

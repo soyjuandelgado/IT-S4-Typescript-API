@@ -1,17 +1,14 @@
 @import url("./reset.css");
 
-:root{
+:root {
     --font-size: 16px;
     --font-color: black;
     --font-joke: white;
-    --background-image: "/public/assets/img/risa.jpg.webp";
-    --background-color: white;
-    --overlay-color: rgba(255, 255, 255, 0.6); /* Blanco con opacidad */
-    --btn-next-color: white;
-    --btn-next-back-color: blue;
-    --btn-next-back-border: blue;
-    --btn-next-back-color-hover: cornflowerblue;
-    --btn-next-back-color-active:dodgerblue;
+    --btn-next-color: black;
+    --btn-next-back-color: #f5c82e;
+    --btn-next-back-border: black;
+    --btn-next-back-color-hover: #f8e093;
+    --btn-next-back-color-active: #ffc400;
 }
 
 body {
@@ -20,10 +17,6 @@ body {
     margin: auto;
     font-family: Helvetica, sans-serif;
     font-size: var(--font-size);
-    background-image: url("/assets/img/risa.jpg.webp");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
 }
 
 h1 {
@@ -36,8 +29,10 @@ h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--overlay-color); 
-    z-index: 0;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
 }
 
 .weather-container {
@@ -46,21 +41,19 @@ h1 {
     justify-content: flex-start;
     align-items: center;
     padding: 1rem;
-    background-color: var(--background-color);
-    opacity: 0.95;
 }
-.weather-icon-sky{
+.weather-icon-sky {
     width: 4rem;
     padding-right: 1rem;
 }
 
-.weather-info-text{
+.weather-info-text {
     font-size: 1.5rem;
     padding-left: 1.5rem;
     line-height: 3rem;
     border-left: solid 1px var(--font-color);
 }
-.weather-icon-temp{
+.weather-icon-temp {
     width: 4rem;
 }
 .container {
@@ -75,29 +68,28 @@ h1 {
     justify-content: space-between;
     align-content: space-around;
     margin: auto;
-    margin-top: 30%;
-    width: 80%;
+    margin-top: 20%;
+    width: 90%;
     height: 50%;
     padding: 3rem;
-    background-color: var(--background-color);
-    opacity: 0.95;
     border-radius: 0.5rem;
 }
 .joke-title {
+    color: var(--font-joke);
     padding-top: 1rem;
-    opacity: 1;
     line-height: 2.5rem;
 }
 .joke-text {
+    color: var(--font-joke);
     flex-wrap: wrap;
-    opacity: 1;
+    line-height: 1.5rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
 }
 .joke-valoration {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
 .joke-valoration-button {
@@ -115,9 +107,8 @@ h1 {
 }
 .joke-next-btn {
     display: block;
-    opacity: 1;
-    border: 1px solid var(--btn-next-back-border);
-    border-radius: 0.5rem;
+    border: 2px solid var(--btn-next-back-border);
+    border-radius: 1rem;
     background-color: var(--btn-next-back-color);
     padding: 0.5rem;
     color: var(--btn-next-color);
@@ -131,43 +122,45 @@ h1 {
     background-color: var(--btn-next-back-color-active);
 }
 
-@media (min-width: 600px) {
+.blob1 {
+    background-image: url("/assets/img/blob1.png");
+}
+.blob2 {
+    background-image: url("/assets/img/blob2.png");
+}
+.blob3 {
+    background-image: url("/assets/img/blob3.png");
+}
+.blob4 {
+    background-image: url("/assets/img/blob4.png");
+}
+.blob5 {
+    background-image: url("/assets/img/blob5.png");
+}
+.blob6 {
+    background-image: url("/assets/img/blob6.png");
+}
+.blob7 {
+    background-image: url("/assets/img/blob7.png");
+}
+.blob8 {
+    background-image: url("/assets/img/blob8.png");
+}
+.blob9 {
+    background-image: url("/assets/img/blob9.png");
+}
+.blob0 {
+    background-image: url("/assets/img/blob0.png");
+}
+
+@media (min-width: 800px) {
     .joke-container {
-        margin-top: 20%;
-        width: 60%;
+        width: 50%;
+        margin-top: 15%;
+    }
+    .overlay {
+        background-size:contain;
     }
 }
 
-.blob1 { 
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: repeat;
-  background-image: url("data:image/svg+xml;utf8,%3Csvg viewBox=%220 0 1000 1000%22 xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cdefs%3E%3CclipPath id=%22a%22%3E%3Cpath fill=%22currentColor%22 d=%22M801 632.5Q711 765 553.5 861T238 829.5Q80 702 123 520.5T283 201Q400 63 598 96t245.5 218.5Q891 500 801 632.5Z%22%2F%3E%3C%2FclipPath%3E%3C%2Fdefs%3E%3Cg clip-path=%22url(%23a)%22%3E%3Cpath fill=%22%239071bb%22 d=%22M801 632.5Q711 765 553.5 861T238 829.5Q80 702 123 520.5T283 201Q400 63 598 96t245.5 218.5Q891 500 801 632.5Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
-}
 
-.blob2 { 
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: repeat;
-  background-image: url("data:image/svg+xml;utf8,%3Csvg viewBox=%220 0 1000 1000%22 xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cdefs%3E%3CclipPath id=%22a%22%3E%3Cpath fill=%22currentColor%22 d=%22M838 647.5Q735 795 579 816.5t-338.5-41Q58 713 129.5 534.5t167.5-340Q393 33 576 104t274 233.5q91 162.5-12 310Z%22%2F%3E%3C%2FclipPath%3E%3C%2Fdefs%3E%3Cg clip-path=%22url(%23a)%22%3E%3Cpath fill=%22%239071bb%22 d=%22M838 647.5Q735 795 579 816.5t-338.5-41Q58 713 129.5 534.5t167.5-340Q393 33 576 104t274 233.5q91 162.5-12 310Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
-}
-.blob3 { 
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: repeat;
-  background-image: url("data:image/svg+xml;utf8,%3Csvg viewBox=%220 0 1000 1000%22 xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cdefs%3E%3CclipPath id=%22a%22%3E%3Cpath fill=%22currentColor%22 d=%22M873.5 659.5Q754 819 576 882.5t-274-89Q206 641 146 471t93.5-304.5q153.5-134.5 303-21t300 234q150.5 120.5 31 280Z%22%2F%3E%3C%2FclipPath%3E%3C%2Fdefs%3E%3Cg clip-path=%22url(%23a)%22%3E%3Cpath fill=%22%239071bb%22 d=%22M873.5 659.5Q754 819 576 882.5t-274-89Q206 641 146 471t93.5-304.5q153.5-134.5 303-21t300 234q150.5 120.5 31 280Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
-}
-.blob4 { 
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: repeat;
-  background-image: url("data:image/svg+xml;utf8,%3Csvg viewBox=%220 0 1000 1000%22 xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cdefs%3E%3CclipPath id=%22a%22%3E%3Cpath fill=%22currentColor%22 d=%22M802.5 628.5Q705 757 552.5 847t-271-47.5Q163 662 145.5 491.5t124-276Q411 110 582.5 146T827 341q73 159-24.5 287.5Z%22%2F%3E%3C%2FclipPath%3E%3C%2Fdefs%3E%3Cg clip-path=%22url(%23a)%22%3E%3Cpath fill=%22%239071bb%22 d=%22M802.5 628.5Q705 757 552.5 847t-271-47.5Q163 662 145.5 491.5t124-276Q411 110 582.5 146T827 341q73 159-24.5 287.5Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
-}

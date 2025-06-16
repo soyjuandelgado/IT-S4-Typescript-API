@@ -1,10 +1,25 @@
 @import url("./reset.css");
 
+:root{
+    --font-size: 16px;
+    --font-color: black;
+    --font-joke: white;
+    --background-image: "/public/assets/img/risa.jpg.webp";
+    --background-color: white;
+    --overlay-color: rgba(255, 255, 255, 0.6); /* Blanco con opacidad */
+    --btn-next-color: white;
+    --btn-next-back-color: blue;
+    --btn-next-back-border: blue;
+    --btn-next-back-color-hover: cornflowerblue;
+    --btn-next-back-color-active:dodgerblue;
+}
+
 body {
+    color: var(--font-color);
     max-width: 1200px;
     margin: auto;
     font-family: Helvetica, sans-serif;
-    font-size: 16px;
+    font-size: var(--font-size);
     background-image: url("/assets/img/risa.jpg.webp");
     background-repeat: no-repeat;
     background-size: cover;
@@ -21,7 +36,7 @@ h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.6); /* Blanco con opacidad */
+    background-color: var(--overlay-color); 
     z-index: 0;
 }
 
@@ -31,7 +46,7 @@ h1 {
     justify-content: flex-start;
     align-items: center;
     padding: 1rem;
-    background-color: #fff;
+    background-color: var(--background-color);
     opacity: 0.95;
 }
 .weather-icon-sky{
@@ -43,7 +58,7 @@ h1 {
     font-size: 1.5rem;
     padding-left: 1.5rem;
     line-height: 3rem;
-    border-left: solid 1px black;
+    border-left: solid 1px var(--font-color);
 }
 .weather-icon-temp{
     width: 4rem;
@@ -64,7 +79,7 @@ h1 {
     width: 80%;
     height: 50%;
     padding: 3rem;
-    background-color: #fff;
+    background-color: var(--background-color);
     opacity: 0.95;
     border-radius: 0.5rem;
 }
@@ -83,14 +98,13 @@ h1 {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    justify-items: center;
     align-items: center;
 }
 .joke-valoration-button {
     text-align: center;
     font-size: 3rem;
     line-height: 4rem;
-    height: 4rem;
+    height: 5rem;
 }
 .joke-valoration-button:hover {
     font-size: 4rem;
@@ -102,17 +116,19 @@ h1 {
 .joke-next-btn {
     display: block;
     opacity: 1;
-    border: 1px solid blue;
+    border: 1px solid var(--btn-next-back-border);
     border-radius: 0.5rem;
-    background-color: blue;
+    background-color: var(--btn-next-back-color);
     padding: 0.5rem;
-    color: #fff;
+    color: var(--btn-next-color);
+    min-width: 15rem;
+    align-self: center;
 }
 .joke-next-btn:hover {
-    background-color: cornflowerblue;
+    background-color: var(--btn-next-back-color-hover);
 }
 .joke-next-btn:active {
-    background-color: dodgerblue;
+    background-color: var(--btn-next-back-color-active);
 }
 
 @media (min-width: 600px) {

@@ -1,12 +1,11 @@
 // https://www.el-tiempo.net/api
 
-type Weather = { temp: string; sky: string; skyCode: string };
+export type Weather = { temp: string; sky: string; skyCode: string };
 
 export const getWeather = (): Promise<Weather> => {
     const province = "08";
     const city = "08019";
     const url = `https://www.el-tiempo.net/api/json/v2/provincias/${province}/municipios/${city}`;
-    //let result: Weather;
 
     return fetch(url)
         .then((res) => {

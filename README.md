@@ -71,6 +71,7 @@ Creación de una web de chistes que tenga las siguientes funcionalidades:
 - Vite
 - Typescript
 - API
+- Jest / Jsdom
 
 ## 📋Requisitos
 
@@ -106,4 +107,10 @@ Para ejecutar en local mediante Vite:
 
 ```shell
 npm run dev
+```
+
+Para ejecutar los tests:
+
+```shell
+npm run test:watch
 ```

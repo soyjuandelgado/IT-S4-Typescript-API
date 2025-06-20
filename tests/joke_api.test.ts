@@ -42,10 +42,10 @@ describe('Function "getJokeAPI"', () => {
     it("should return a string", async () => {
         const req: JokeRequest = {
             url: "https://api.chucknorris.io/jokes/random",
-            conf: {}, 
+            conf: {},
             field: "value",
         };
         const data = await getJokeAPI(req);
         expect(typeof data).toBe("string");
-    }); 
+    });
 });

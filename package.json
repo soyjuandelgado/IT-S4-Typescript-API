@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "it-s4-typescript-api": "file:",
+    "jest-environment-jsdom": "^30.0.2",
     "ts-jest": "^29.4.0",
     "ts-node": "^10.9.2"
   }

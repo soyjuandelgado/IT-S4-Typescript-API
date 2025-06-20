@@ -6,7 +6,7 @@ import {
     getReportJokes,
     resetReportJokes,
 } from "../src/joke";
-//import * as jokeModule from "../src/joke";
+
 import * as jokeAPIModule from "../src/joke_api";
 
 describe("Function getJokeText", () => {

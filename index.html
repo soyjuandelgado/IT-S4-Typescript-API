@@ -4,23 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./public/css/styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
     <title>Chistes</title>
 </head>
 
-<body>
-    <div class="overlay"></div>
+<body id="page-body">
+    <div class="overlay" id="back-image"></div>
     <header class="weather-container">
-        <p id="weather-info">Buen tiempo</p>
+        <img class="weather-icon-sky" id="weather-icon-sky" src="./assets/img/weather/11.svg" alt="Clear Day" title="Clear Day">
+        <p class="weather-info-text" id="weather-info-text">--</p>
+        <img class="weather-icon-temp" id="weather-icon-temp" src="./assets/img/weather/thermometer-celsius.svg" alt="Thermomether Celsius">
     </header>
     <main class="container">
         <section class="joke-container">
-            <h1 class="joke-title">¡Cuéntame un chiste! </h1>
-            <div class="joke-text" id="joke-text"></div>
+            <h1 class="joke-title">¡Cuéntame un chiste!</h1>
+            <div class="joke-text" id="joke-text" role="status" aria-live="polite"></div>
             <div class="joke-valoration">
-                <button class="joke-valoration-button" id="joke-val-1">🙂</button>
-                <button class="joke-valoration-button" id="joke-val-2">😄</button>
-                <button class="joke-valoration-button" id="joke-val-3">🤣</button>
+                <button class="joke-valoration-button" id="joke-val-1" aria-label="Not amusing" title="Not amusing">🙂</button>
+                <button class="joke-valoration-button" id="joke-val-2" aria-label="Funny" title="Funny">😄</button>
+                <button class="joke-valoration-button" id="joke-val-3" aria-label="Hilariuos" title="Hilariuos">🤣</button>
             </div>
             <button class="joke-next-btn" id="next">Siguiente</button>
         </section>

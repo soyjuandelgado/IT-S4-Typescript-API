@@ -1,24 +1,48 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+import { getJokeText, scoreJoke } from "./joke";
+import { getWeather } from "./weather";
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+document.addEventListener("DOMContentLoaded", () => {
+    const btnNext = document.getElementById("next");
+    if (btnNext) btnNext.addEventListener("click", nextJoke);
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+    [1,2,3].forEach((score) => {
+        const btn = document.getElementById(`joke-val-${score}`);
+        if(btn) btn.addEventListener("click", () => valJoke(score))
+    })
+
+    nextJoke();
+    showWeather();
+});
+
+const nextJoke = async () => {
+    const joke = document.getElementById("joke-text");
+    if (!joke) return;
+
+    joke.textContent = "Thinking... 🤔";
+
+    try {
+        const jokeText = await getJokeText();
+        console.log(jokeText);
+        joke.textContent = jokeText;
+    } catch (error) {
+        console.log(`nextJoke: ${error}`);
+        joke.textContent = "Something got wrong";
+    }
+};
+
+const valJoke = (value: number) => {
+    scoreJoke(value);
+};
+
+const showWeather = async () => {
+    const weather = document.getElementById("weather-info");
+    if (!weather) return;
+    try {
+        let w = await getWeather();
+        weather.textContent = `${w.temp}º - ${w.sky}`;
+        console.log(w);
+    } catch (error) {
+        weather.textContent = "Tiempo no disponible";
+        console.log(error);
+    }
+};

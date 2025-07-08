@@ -123,34 +123,34 @@ h1 {
 }
 
 .blob1 {
-    background-image: url("/assets/img/blob1.png");
+    background-image: url("/public/assets/img/blob1.png");
 }
 .blob2 {
-    background-image: url("/assets/img/blob2.png");
+    background-image: url("/public/assets/img/blob2.png");
 }
 .blob3 {
-    background-image: url("/assets/img/blob3.png");
+    background-image: url("/public/assets/img/blob3.png");
 }
 .blob4 {
-    background-image: url("/assets/img/blob4.png");
+    background-image: url("/public/assets/img/blob4.png");
 }
 .blob5 {
-    background-image: url("/assets/img/blob5.png");
+    background-image: url("/public/assets/img/blob5.png");
 }
 .blob6 {
-    background-image: url("/assets/img/blob6.png");
+    background-image: url("/public/assets/img/blob6.png");
 }
 .blob7 {
-    background-image: url("/assets/img/blob7.png");
+    background-image: url("/public/assets/img/blob7.png");
 }
 .blob8 {
-    background-image: url("/assets/img/blob8.png");
+    background-image: url("/public/assets/img/blob8.png");
 }
 .blob9 {
-    background-image: url("/assets/img/blob9.png");
+    background-image: url("/public/assets/img/blob9.png");
 }
 .blob0 {
-    background-image: url("/assets/img/blob0.png");
+    background-image: url("/public/assets/img/blob0.png");
 }
 
 @media (min-width: 800px) {

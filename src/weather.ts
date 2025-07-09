@@ -1,6 +1,6 @@
 // https://www.el-tiempo.net/api
 
-type Weather = { temp: string; sky: string };
+type Weather = { temp: string; sky: string; skyCode: string };
 
 export const getWeather = (): Promise<Weather> => {
     const province = "08";
@@ -17,6 +17,7 @@ export const getWeather = (): Promise<Weather> => {
             return {
                 temp: response.temperatura_actual,
                 sky: response.stateSky.description,
+                skyCode: response.stateSky.id,
             };
         })
         .catch((error) => {

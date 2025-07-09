@@ -1,4 +1,4 @@
-import {getJoke} from './joke_api';
+import { getJoke } from "./joke_api";
 
 interface Joke {
     joke: string;
@@ -9,13 +9,16 @@ interface Joke {
 let reportJokes: Joke[] = [];
 let lastJokeText: string;
 
+export const getReportJokes = () => [...reportJokes];
+export const resetReportJokes = () => (reportJokes.length = 0);
+export const getLastJokeText = () => lastJokeText;
+export const setLastJokeText = (text: string) => (lastJokeText = text);
 
 export const getJokeText = (): Promise<string> => {
-    return getJoke()
-        .then((response) => {
-            lastJokeText = response;
-            return response;
-        })
+    return getJoke().then((response) => {
+        lastJokeText = response;
+        return response;
+    });
 };
 
 export const scoreJoke = (value: number) => {

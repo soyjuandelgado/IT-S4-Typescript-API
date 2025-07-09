@@ -3,21 +3,26 @@ import { getWeather } from "./weather";
 
 document.addEventListener("DOMContentLoaded", () => {
     const btnNext = document.getElementById("next");
-    if (btnNext) btnNext.addEventListener("click", nextJoke);
+    btnNext?.addEventListener("click", nextJoke);
 
-    [1,2,3].forEach((score) => {
+    [1, 2, 3].forEach((score) => {
         const btn = document.getElementById(`joke-val-${score}`);
-        if(btn) btn.addEventListener("click", () => valJoke(score))
-    })
+        btn?.addEventListener("click", () => valJoke(score));
+    });
 
     nextJoke();
     showWeather();
 });
 
-const nextJoke = async () => {
+const valJoke = (value: number) => {
+    scoreJoke(value);
+};
+
+export const nextJoke = async () => {
     const joke = document.getElementById("joke-text");
     if (!joke) return;
 
+    changeBackground();
     joke.textContent = "Thinking... 🤔";
 
     try {
@@ -30,19 +35,28 @@ const nextJoke = async () => {
     }
 };
 
-const valJoke = (value: number) => {
-    scoreJoke(value);
+export const changeBackground = () => {
+    const back = document.getElementById("back-image");
+    if (!back) return;
+    back.classList = "overlay";
+    back.classList.add(`blob${Math.floor(Math.random() * 10)}`);
 };
 
-const showWeather = async () => {
-    const weather = document.getElementById("weather-info");
-    if (!weather) return;
+export const showWeather = async () => {
+    const path = "./assets/img/weather/";
+    const temp = document.getElementById("weather-info-text");
+    const sky = document.getElementById("weather-icon-sky") as HTMLImageElement;
+    if (!temp) return;
+    if (!sky) return;
     try {
         let w = await getWeather();
-        weather.textContent = `${w.temp}º - ${w.sky}`;
+        temp.textContent = w.temp;
+        sky.alt = w.sky;
+        sky.title = w.sky;
+        sky.src = `${path}${w.skyCode}.svg`;
         console.log(w);
     } catch (error) {
-        weather.textContent = "Tiempo no disponible";
+        temp.textContent = "--";
         console.log(error);
     }
 };

@@ -27,14 +27,12 @@ export const requests: JokeRequest[] = [
 export const getJoke = (): Promise<string> =>
     getJokeAPI(requests[Math.floor(Math.random() * requests.length)]);
 
-const getJokeAPI = ({ url, conf, field }: JokeRequest): Promise<string> => {
+export const getJokeAPI = ({ url, conf, field }: JokeRequest): Promise<string> => {
     let result = fetch(url, conf)
         .then((res) => {
-            if (res.ok) return res.json();
-            else throw new Error(String(res.status));
+            if (!res.ok) throw new Error(`HTTP Error: ${res.status}`);
+            return res.json();
         })
         .then((response) => response[field])
-
-
     return result;
 };
